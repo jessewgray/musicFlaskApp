@@ -11,7 +11,7 @@ window.addEventListener("load", function(){
 	var newAPI = "api/" + country + "/" + artist
 
 	d3.json(baseURL + api).then(function(data) {
-  		console.log(data);
+  		//console.log(data);
 
 		Object.keys(data).forEach(key => d3.select('.section-content-ul').append('li').html(data[key]['year'] + ', ' + data[key]['artist'] + ', ' + data[key]['country'] + ', ' +data[key]['title'] + ', ' + data[key]['duration'] ));
 
@@ -84,10 +84,22 @@ L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 }).addTo(myMap);
 
 
+
 //console.log(countries)
-L.geoJSON(countries).addTo(myMap)
+//L.geoJSON(countries).addTo(myMap)
 
 
+var geoJsonLayer = L.geoJson(countries, {
+  // Executes on each feature in the dataset
+  onEachFeature: function (featureData, featureLayer) {
+    // featureData contains the actual feature object
+    // featureLayer contains the indivual layer instance
+    featureLayer.on('click', function () {
+      // Fires on click of single feature
+      console.log('Clicked feature layer ID: ' + featureData.id);
+    });
+  }
+}).addTo(myMap);
 
 
 });
