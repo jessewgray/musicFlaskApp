@@ -10,7 +10,8 @@ from sqlalchemy import MetaData
 from sqlalchemy import Table
 
 
-engine = create_engine("mysql+pymysql://root:snowboarding@127.0.0.1:3306/musicFlaskTwo", encoding='utf-8')
+# engine = create_engine("mysql+pymysql://root:snowboarding@127.0.0.1:3306/musicFlaskTwo", encoding='utf-8')
+engine = create_engine('postgres://ljkpzfyfasxmxh:bdfb6b18ccfda15e0e09aea7d3a9e146bbecd58b3790b952675263a87064ba69@ec2-54-163-234-88.compute-1.amazonaws.com:5432/d6on3kbl97jtcf')
 
 # conn = engine.connect()
 
@@ -108,6 +109,65 @@ def get_data():
         data['country']=item[4]
         data_all.append(data)
     return jsonify(data_all)
+
+
+
+@app.route('/api/<country>', methods=['GET'])
+def get_data_country(country):
+    sel=[musicData.year,
+        musicData.title,
+        musicData.artist,
+        musicData.duration,
+        musicData.country]
+
+
+    results = session.query(*sel).filter(musicData.country == country).all()
+
+    data_all=[]
+  
+    for item in results:
+        data = {}
+        data['year'] = int(item[0])
+        data['title']=item[1]
+        data['artist']=item[2]
+        data['duration']=item[3]
+        data['country']=item[4]
+        data_all.append(data)
+    return jsonify(data_all)
+
+
+
+
+@app.route('/api/filter/<artist>', methods=['GET'])
+def get_data_artist_solo(artist):
+    sel=[musicData.year,
+        musicData.title,
+        musicData.artist,
+        musicData.duration,
+        musicData.country]
+
+
+    results = session.query(*sel).filter(musicData.artist == artist).all()
+
+    data_all=[]
+  
+    for item in results:
+        data = {}
+        data['year'] = int(item[0])
+        data['title']=item[1]
+        data['artist']=item[2]
+        data['duration']=item[3]
+        data['country']=item[4]
+        data_all.append(data)
+    return jsonify(data_all)
+
+
+
+
+
+
+
+
 
 if __name__ == "__main__":
   app.run(debug=True)
