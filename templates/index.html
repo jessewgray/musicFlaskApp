@@ -10,12 +10,14 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
   integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
   crossorigin=""/>
+  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
   <script type="text/javascript" src="../static/js/countries.json"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
   integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
   crossorigin=""></script>
+  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
   
   <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.0/js/bootstrap.min.js" integrity="sha384-1AHwFvFDF+iQPDBasw2LKa8PdkI8aYv2ad2o197DHC8qr4LuwSe44JY1THkowrqg" crossorigin="anonymous"></script> -->
 
@@ -28,7 +30,12 @@
 
   <main class="hero-section">
     <div class="container">
-      
+      <div class="row">
+        <div class="col-md-12 header">
+          <p>Header</p>
+        </div>
+      </div>
+
       <div class="row">
 
         <div class="col-md-6 col-lg-6">
@@ -54,18 +61,42 @@
         </div> <!-- col-md-6 col-lg-6 -->
   
       </div> <!-- row -->
-     
 
+     <div class="row bottomSection">
+       <div class="col-md-8 plotsSection">
+        <p>plotsSection</p>
+        <!-- Flickity HTML init -->
+        <div class="carousel"
+          data-flickity='{ "freeScroll": true }'>
+          <div class="carousel-cell"></div>
+          <div class="carousel-cell"></div>
+          <div class="carousel-cell"></div>
+        </div>
+      </div>
+      <div class="col-md-4 radioSection">
+        <p>radioSection</p>
+        <iframe class="radio" src="https://www.abc.net.au/triplej/listen-live/player/" frameborder="0"></iframe>
+      </div>
+     </div>
+      
             
              
             
    
       
+    
+      <div class="row">
+        <div class="col-md-12 footer">
+          <p>footer</p>
+        </div>
+      </div>
+    
       
       
-
     </div> <!-- container -->
   </main>
+
+ 
 
 <script src="../static/js/frontApp.js"></script>
 </body>

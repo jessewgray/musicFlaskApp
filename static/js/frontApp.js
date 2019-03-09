@@ -15,19 +15,23 @@ window.addEventListener("load", function(){
 
 
 //###################################
-
-	// d3.json(baseURL + api).then(function(data) {
- //  		//console.log(data);
-
-	// 	Object.keys(data).forEach(key => d3.select('.section-content-ul').append('li').html(data[key]['year'] + ', ' + data[key]['artist'] + ', ' + data[key]['country'] + ', ' +data[key]['title'] + ', ' + data[key]['duration'] ));
-
-	// 	var uniqueArtists = data.map(x => x.artist.trim()).filter((v, i, a) => a.indexOf(v) === i); 
-	// 	console.log(uniqueArtists.sort())
-	// 	Object.keys(data).forEach(key => d3.select("#theCountries").append('option').html(data[key]['country']));
-	// 	uniqueArtists.forEach(artist => d3.select("#theArtists").append('option').html(artist));
 	
+	 d3.json(baseURL + api).then(function(data) {
+  		//console.log(data);
 
-	// });
+		//Object.keys(data).forEach(key => d3.select('.section-content-ul').append('li').html(data[key]['year'] + ', ' + data[key]['artist'] + ', ' + data[key]['country'] + ', ' +data[key]['title'] + ', ' + data[key]['duration'] ));
+		uniqueCountries = data.map(x => x.country.trim()).filter((v, i, a) => a.indexOf(v) === i); 
+		uniqueCountries.sort()
+		
+		console.log(uniqueCountries)
+
+		//var uniqueArtists = data.map(x => x.artist.trim()).filter((v, i, a) => a.indexOf(v) === i); 
+		//console.log(uniqueArtists.sort())
+
+		//uniqueCountries.forEach(country => console.log(country));
+		//uniqueArtists.forEach(artist => d3.select("#theArtists").append('option').html(artist));
+
+	});
 
 
 	// d3.select("#theCountries").on("change", function(){
@@ -111,8 +115,23 @@ L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 
 
 var geoJsonLayer = L.geoJson(countries, {
+
   // Executes on each feature in the dataset
   onEachFeature: function (featureData, featureLayer) {
+  	//console.log(featureData)
+  	if (featureData.properties.name == "Canada"){
+  		console.log(featureData);
+  		var myStyle = {
+    	"color": "red",
+    	"weight": 5,
+    	"opacity": 0.65
+};
+
+L.geoJSON(countries[28], {
+    style: myStyle
+}).addTo(myMap);
+  	}
+  	//console.log(featureLayer)
     // featureData contains the actual feature object
     // featureLayer contains the indivual layer instance
     featureLayer.on('click', function () {
@@ -125,16 +144,22 @@ var geoJsonLayer = L.geoJson(countries, {
       d3.json(baseURL + countryAPI).then(function(data) {
 				
       		console.log(data)
+      		if (data.length === 0){
+      			console.log(data.length)
+      			d3.select('.section-content-ul').append('li').html("No hits here, click a " + "<span class='red'>red</span> country")
+      		}else{
       		Object.keys(data).forEach(key => d3.select('.section-content-ul').append('li').html(data[key]['year'] + ', ' + data[key]['artist'] + ', ' + data[key]['country'] + ', ' +data[key]['title'] + ', ' + data[key]['duration'] ));
 
 			var uniqueArtists = data.map(x => x.artist.trim()).filter((v, i, a) => a.indexOf(v) === i); 
 			uniqueArtists.sort()
 			//Object.keys(data).forEach(key => d3.select("#theCountries").append('option').html(data[key]['country']));
 			uniqueArtists.forEach(artist => d3.select("#theArtists").append('option').html(artist));
-
+			}
 		});
     });
   }
+
+  
 }).addTo(myMap);
 
 
