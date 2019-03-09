@@ -15,7 +15,7 @@ window.addEventListener("load", function(){
 
 
 //###################################
-	
+	const newUniqueCountries = []
 	 d3.json(baseURL + api).then(function(data) {
   		//console.log(data);
 
@@ -23,8 +23,11 @@ window.addEventListener("load", function(){
 		uniqueCountries = data.map(x => x.country.trim()).filter((v, i, a) => a.indexOf(v) === i); 
 		uniqueCountries.sort()
 		
-		console.log(uniqueCountries)
+		//console.log(uniqueCountries)
 
+		for (i = 0; i < uniqueCountries.length; i++){
+			newUniqueCountries.push(uniqueCountries[i])
+		}
 		//var uniqueArtists = data.map(x => x.artist.trim()).filter((v, i, a) => a.indexOf(v) === i); 
 		//console.log(uniqueArtists.sort())
 
@@ -32,7 +35,7 @@ window.addEventListener("load", function(){
 		//uniqueArtists.forEach(artist => d3.select("#theArtists").append('option').html(artist));
 
 	});
-
+	console.log(newUniqueCountries)
 
 	// d3.select("#theCountries").on("change", function(){
 	// 	// var aCountry = document.getElementById("theCountries");
