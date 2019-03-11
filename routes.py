@@ -8,6 +8,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
 from sqlalchemy import MetaData
 from sqlalchemy import Table
+from sqlalchemy import func
 
 
 # engine = create_engine("mysql+pymysql://root:snowboarding@127.0.0.1:3306/musicFlaskTwo", encoding='utf-8')
@@ -163,11 +164,24 @@ def get_data_artist_solo(artist):
 
 
 
+@app.route('/api/data/filter/<country>', methods=['GET'])
+def data_filter(country):
 
+    sel = [musicData.artist,
+       musicData.country,
+       func.count(musicData.artist)]
 
+    results = session.query(*sel).group_by(musicData.artist, musicData.country).filter(musicData.country == country).all()
 
-
-
+    data_all=[]
+  
+    for item in results:
+        data = {}
+        data['artist'] = item[0]
+        data['country']=item[1]
+        data['numberOfHits']=int(item[2])
+        data_all.append(data)
+    return jsonify(data_all)
 
 if __name__ == "__main__":
   app.run(debug=True)

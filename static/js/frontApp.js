@@ -35,7 +35,11 @@ window.addEventListener("load", function(){
 		//uniqueArtists.forEach(artist => d3.select("#theArtists").append('option').html(artist));
 
 	});
-	console.log(newUniqueCountries)
+	//console.log(newUniqueCountries)
+ 
+	
+
+
 
 	// d3.select("#theCountries").on("change", function(){
 	// 	// var aCountry = document.getElementById("theCountries");
@@ -73,9 +77,10 @@ d3.select("#theArtists").on("change", function(){
 	//console.log(artist);
 	var artistBaseURL = "api/filter"
 	d3.json(baseURL + api + "/filter/" + artist).then(function(data) {
-		console.log(data)
+		//console.log(data)
 		d3.select(".section-content-ul").selectAll("li").remove();
 		Object.keys(data).forEach(key => d3.select('.section-content-ul').append('li').html(data[key]['year'] + ', ' + data[key]['artist'] + ', ' + data[key]['country'] + ', ' +data[key]['title'] + ', ' + data[key]['duration'] ));
+		console.log("onchangedata " + data)
 	});
 });
 //#####################################
@@ -134,6 +139,8 @@ L.geoJSON(countries[28], {
     style: myStyle
 }).addTo(myMap);
   	}
+
+
   	//console.log(featureLayer)
     // featureData contains the actual feature object
     // featureLayer contains the indivual layer instance
@@ -141,15 +148,15 @@ L.geoJSON(countries[28], {
     	d3.select(".section-content-ul").selectAll("li").remove();
   		d3.select("#theArtists").selectAll('option').remove()
       // Fires on click of single feature
-      console.log('Clicked feature layer ID: ' + featureData.id + ", " + featureData.properties.name);
+      //console.log('Clicked feature layer ID: ' + featureData.id + ", " + featureData.properties.name);
       var baseURL = window.location.href;
       var countryAPI = "api/" + featureData.properties.name;
       d3.json(baseURL + countryAPI).then(function(data) {
 				
       		console.log(data)
       		if (data.length === 0){
-      			console.log(data.length)
-      			d3.select('.section-content-ul').append('li').html("No hits here, click a " + "<span class='red'>red</span> country")
+      			//console.log(data.length)
+      			d3.select('.section-content-ul').append('li').html("No hits from " + featureData.properties.name + ", click a <span class='red'>red</span> country")
       		}else{
       		Object.keys(data).forEach(key => d3.select('.section-content-ul').append('li').html(data[key]['year'] + ', ' + data[key]['artist'] + ', ' + data[key]['country'] + ', ' +data[key]['title'] + ', ' + data[key]['duration'] ));
 
@@ -159,11 +166,52 @@ L.geoJSON(countries[28], {
 			uniqueArtists.forEach(artist => d3.select("#theArtists").append('option').html(artist));
 			}
 		});
+
+    const ar = []
+  	const nm = []
+
+
+      var countryHitsAPI = "api/data/filter/" + featureData.properties.name;
+      d3.json(baseURL + countryHitsAPI).then(function(data){
+      	console.log(data)
+      	for (i = 0; i<data.length; i++){
+      	ar.push(data[i].artist)
+      	nm.push(parseInt(data[i].numberOfHits))
+		}
+      });
+
+
+      	//chart countries
+
+    function timeIt(){
+      	var plotsData = [
+  		{
+    		x: ar,
+    		y: nm,
+    	// 	x: [1999, 2000, 2001, 2002],
+  			// y: [10, 15, 13, 17],
+    		type: 'bar'
+  		}
+		];
+		var layout = {
+  			autosize: false,
+  			height: 500
+  		}
+		
+		Plotly.newPlot('plotsSection', plotsData, layout);
+	}
+setTimeout(function(){ timeIt(); }, 1500);
+      	//end chart countries
+      	console.log('still working')
     });
   }
 
   
 }).addTo(myMap);
+
+
+
+
 
 
 });
