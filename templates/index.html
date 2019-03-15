@@ -31,16 +31,30 @@
   <main class="hero-section">
     <div class="container">
       <div class="row">
-        <div class="col-md-12 header">
-          <p>Header</p>
+        <div class="col-md-12 header-col">
+          <div class="header row">
+            <div class="col-md-12 headerText">
+              <img class="tripleJLogo" src="static/pics/station-logo-thumbnail.png" alt="">
+            
+              <button onclick="goRadio()"><img src="https://www.abc.net.au/triplej/hottest100/18/img/triplejheader/listen_live.gif" alt=""><span id="buttonText">LISTEN LIVE</span></button>
+             <!--  <h1>Hot 100 1993 - 2018</h1> -->
+            </div>
+            <script>function goRadio(){
+            window.location.href = "#liveRadio";
+            }</script>
+            
+          </div>
         </div>
       </div>
+      <div class="banner">
+              <img src="../static/pics/hot100.jpg" alt="">
+            </div>
 
-      <div class="row">
+      <div class="row sectionOne">
 
         <div class="col-md-6 col-lg-6">
           <div class="mapContainer">
-            <h2>map area</h2>
+            <h4>Select a Country</h4>
             <div id="map"></div>
           </div> <!-- mapContainer -->
         </div> <!-- col-md-6 col-lg-6 -->
@@ -51,12 +65,12 @@
               <select name="" id="theCountries"></select>
             </div> -->
             <div class="col-md-12">
-              <h2>music list</h2>
+              
               <select name="" id="theArtists"></select>
             </div>
           </div>
-          <div class="section-content">
-            <ul class="section-content-ul"></ul>
+          <div class="section-content" id="songList">
+              <ul class="section-content-ul"></ul>
           </div> <!-- section-content -->
         </div> <!-- col-md-6 col-lg-6 -->
   
@@ -64,38 +78,48 @@
 
      <div class="row bottomSection">
        <div class="col-md-8 plotsSection" id="plotsSection">
-        <p>plotsSection</p>
+       
         <!-- Flickity HTML init -->
-        <div class="carousel"
-          data-flickity='{ "freeScroll": true }'>
-          <div class="carousel-cell"></div>
-          <div class="carousel-cell"></div>
-          <div class="carousel-cell"></div>
+        <div class="carousel" data-flickity='{ "freeScroll": true }'>
+          <div class="carousel-cell row">
+            <div class="plotSection">
+              <div class="col-md-12">
+                <div id="plots">
+            
+                </div>
+              </div>
+            </div>       
+          </div>
+           <div class="carousel-cell row">
+            <div class="plotSection">
+              <div class="col-md-12">
+                <div id="plotsTwo">
+            
+                </div>
+              </div>
+            </div>       
+          </div>
+        
         </div>
       </div>
-      <div class="col-md-4 radioSection">
-        <p>radioSection</p>
+      <div class="col-md-4 radioSection" id="liveRadio">
+       
         <iframe class="radio" src="https://www.abc.net.au/triplej/listen-live/player/" frameborder="0"></iframe>
       </div>
      </div>
 
       
-      <div class="plotSection row">
-        <div class="col-md-12">
-          <div id="plots">
-            
-          </div>
-        </div>
-      </div>       
+      
    
       
     
-      <div class="row">
+      <div class="row foot">
         <div class="col-md-12 footer">
-          <p>footer</p>
+          <p>By Jesse W Gray</p>
         </div>
       </div>
     
+
       
       
     </div> <!-- container -->

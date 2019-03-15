@@ -1,9 +1,32 @@
+main{
+	background: url(../pics/musicFestivalBG.jpg) fixed no-repeat;
+}
+.container{
+	background: rgba(255,255,255,.8);
+	padding-left:0px !important;
+	padding-right:0px !important;
+}
+.banner img{
+	max-width:100%;
+	text-align: center;
+}
 #map{
-	height:500px;
+	height:400px;
+}
+.mapContainer{
+	text-align: center;
+}
+.mapContainer h4{
+	font-family: sans-serif;
+}
+.sectionOne{
+	margin-top: 15px;
+	margin-bottom: 15px;
 }
 
 #theArtists{
 	width:100%;
+	margin-top: 4px;
 }
 
 #theCountries{
@@ -11,7 +34,8 @@
 }
 
 .bottomSection{
-	border:solid blue;
+	/*border:solid blue;*/
+	background: white;
 }
 .radioSection{
 	text-align: center;
@@ -19,17 +43,54 @@
 
 .radio{
 	height:450px;
-	border:solid 1px pink;
+	/*border:solid 1px #E03125;*/
 }
 .plotsSection{
-	border:solid limegreen;
+	/*border:solid limegreen;*/
 }
 
 .header, .footer{
-	border:solid pink;
+	text-align: center;
+}
+
+
+.header .tripleJLogo{
+	float: left;
+	margin-top: 10px;
+}
+.row{
+	margin-left:0px !important;
+	margin-right:0px !important;
+	padding-bottom:10px !important;
+}
+.headerText h1{
+	color:#E03125;
+	text-shadow:2px 2px rgba(0, 0, 0);
+	padding-top: 20px;
+}
+.headerText button{
+	background:#E03125;
+	float: left;
+	color:white;
+	margin-top: 30px;
+    margin-left: 20px;
+    padding: 10px;
+    position: relative;
+}
+.headerText button:hover{
+	background: black;
+}
+.headerText button img{
+	height:30px;
+	margin-right:10px;
+	vertical-align: middle;
+}
+
+#buttonText{
+	vertical-align: middle;
 }
 .red{
-	color:red;
+	color:#E03125;
 }
 
 /*flickity*/
@@ -37,27 +98,44 @@
 
 * { box-sizing: border-box; }
 
-body { font-family: sans-serif; }
 
-.carousel {
-  background: #EEE;
-}
 
 .carousel-cell {
-  width: 66%;
-  height: 200px;
+  width: 100%;
+  height: 500px;
   margin-right: 10px;
-  background: #8C8;
   border-radius: 5px;
   counter-increment: gallery-cell;
 }
 
-/* cell number */
-.carousel-cell:before {
-  display: block;
-  text-align: center;
-  content: counter(gallery-cell);
-  line-height: 200px;
-  font-size: 80px;
-  color: white;
+#songList{
+  max-height:400px;
+  overflow-y: auto;
 }
+.gifs img{
+	float:left;
+	height:200px;
+	width:20%;
+}
+.foot{
+	background-color:black;
+}
+.footer p{
+	color:white;
+	padding-top:10px;
+}
+.flickity-page-dots{
+	bottom:10px !important;
+}
+.flickity-button{
+	background:#333 !important;
+}
+.flickity-button-icon{
+	color:white;
+}
+
+.section-content-ul li{
+	list-style:none;
+	margin-bottom: 10px;
+}
+

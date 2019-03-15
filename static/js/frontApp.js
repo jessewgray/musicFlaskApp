@@ -70,8 +70,15 @@ window.addEventListener("load", function(){
 	// 		});
 	// });
 
+
+
 d3.select("#theArtists").on("change", function(){
 	//console.log('Jesse')
+	var labelArtistSong = []
+	var ySongDiration = []
+	var xSongYear = []
+
+
 	var aArtist = document.getElementById("theArtists");
 	var artist = aArtist.options[aArtist.selectedIndex].value;
 	//console.log(artist);
@@ -80,9 +87,44 @@ d3.select("#theArtists").on("change", function(){
 		//console.log(data)
 		d3.select(".section-content-ul").selectAll("li").remove();
 		Object.keys(data).forEach(key => d3.select('.section-content-ul').append('li').html(data[key]['year'] + ', ' + data[key]['artist'] + ', ' + data[key]['country'] + ', ' +data[key]['title'] + ', ' + data[key]['duration'] ));
-		console.log("onchangedata " + data)
+		
+
+		data.forEach(x => labelArtistSong.push(x.title));
+		data.forEach(y => ySongDiration.push(y.duration));
+		data.forEach(z => xSongYear.push(z.year))
+		// console.log(labelArtistSong);
+		// console.log(ySongDiration);
+		// console.log(xSongYear);
+		console.log('remove plot two')
+		d3.select("#plotsTwo").selectAll("div").remove();
+
+		//
+
+		var trace1 = {
+  			x: xSongYear,
+  			y: ySongDiration,
+  			marker: {
+    		color: 'rgb(224,49,37)'
+  			},
+  			mode: 'markers',
+  			type: 'scatter'
+		};
+		var layout = {
+  			title: 'Artist Hits',
+  			xaxis: {title: 'Year'},
+  			yaxis: {title: 'Duration'}
+  		}
+		var data = [trace1];
+	
+		
+
+		Plotly.newPlot('plotsTwo', data, layout);
+		//
+
 	});
 });
+
+
 //#####################################
 
 
@@ -146,7 +188,10 @@ L.geoJSON(countries[28], {
     // featureLayer contains the indivual layer instance
     featureLayer.on('click', function () {
     	d3.select(".section-content-ul").selectAll("li").remove();
-  		d3.select("#theArtists").selectAll('option').remove()
+  		d3.select("#theArtists").selectAll("option").remove()
+  		d3.select("#plotsTwo").selectAll("div").remove();
+
+  		d3.select("#theArtists").append('option').html("Filter by Artist")
       // Fires on click of single feature
       //console.log('Clicked feature layer ID: ' + featureData.id + ", " + featureData.properties.name);
       var baseURL = window.location.href;
@@ -184,10 +229,14 @@ L.geoJSON(countries[28], {
       	//chart countries
 
     function timeIt(){
+    	
       	var plotsData = [
   		{
     		x: ar,
     		y: nm,
+    		marker: {
+    		color: 'rgb(224,49,37)'
+  			},
     	// 	x: [1999, 2000, 2001, 2002],
   			// y: [10, 15, 13, 17],
     		type: 'bar'
@@ -195,10 +244,13 @@ L.geoJSON(countries[28], {
 		];
 		var layout = {
   			autosize: false,
-  			height: 500
+  			// height: 500,
+  			title: 'Triple J\s Hottest 100 Hits',
+  			xaxis: {title: 'Artist'},
+  			yaxis: {title: '# of Hits'}
   		}
 		
-		Plotly.newPlot('plotsSection', plotsData, layout);
+		Plotly.newPlot('plots', plotsData, layout);
 	}
 setTimeout(function(){ timeIt(); }, 1500);
       	//end chart countries
@@ -209,7 +261,11 @@ setTimeout(function(){ timeIt(); }, 1500);
   
 }).addTo(myMap);
 
-
+var layout = {
+  			title: 'Artist Hits',
+  			xaxis: {title: 'Year'},
+  			yaxis: {title: 'Duration'}
+  		}
 
 
 
