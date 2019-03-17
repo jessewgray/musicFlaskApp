@@ -178,12 +178,13 @@ var layout = {
 d3.select(thebutton).on("click", function(){
 		console.log('clicking is working');
 
-		var a = window.document.getElementsByTagName('video');
-		console.log(a);
-		//a.play();
+    d3.selectAll('.radio').each(function(z){
+      this.scrollIntoView();
+    })
+  
 	});
 
-console.log("loaded");
+//console.log("loaded");
 });
 
 
