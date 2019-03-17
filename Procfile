@@ -1,0 +1,1 @@
+web: gunicorn tripleJmusicApp_app.routes:app
