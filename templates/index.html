@@ -19,10 +19,6 @@
   crossorigin=""></script>
   <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
   
-  <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.0/js/bootstrap.min.js" integrity="sha384-1AHwFvFDF+iQPDBasw2LKa8PdkI8aYv2ad2o197DHC8qr4LuwSe44JY1THkowrqg" crossorigin="anonymous"></script> -->
-
-  
-
   
 </head>
 <body>
@@ -34,14 +30,16 @@
         <div class="col-md-12 header-col">
           <div class="header row">
             <div class="col-md-12 headerText">
-              <img class="tripleJLogo" src="static/pics/station-logo-thumbnail.png" alt="">
+              <a href="https://www.abc.net.au/triplej/hottest100/18/countdown/1-100/" target="_blank"><img class="tripleJLogo" src="static/pics/station-logo-thumbnail.png" alt=""></a>
             
-              <button onclick="goRadio()"><img src="https://www.abc.net.au/triplej/hottest100/18/img/triplejheader/listen_live.gif" alt=""><span id="buttonText">LISTEN LIVE</span></button>
-             <!--  <h1>Hot 100 1993 - 2018</h1> -->
+              <button id="clicker"><img src="https://www.abc.net.au/triplej/hottest100/18/img/triplejheader/listen_live.gif" alt=""><span id="buttonText">LISTEN LIVE</span></button>
+               <!--  <h1>Hot 100 1993 - 2018</h1> -->
             </div>
-            <script>function goRadio(){
-            window.location.href = "#liveRadio";
-            }</script>
+          
+
+
+
+           
             
           </div>
         </div>
@@ -109,24 +107,16 @@
      </div>
 
       
-      
-   
-      
-    
       <div class="row foot">
         <div class="col-md-12 footer">
           <p>By Jesse W Gray</p>
         </div>
       </div>
-    
-
-      
-      
+         
     </div> <!-- container -->
   </main>
 
  
-
 <script src="../static/js/frontApp.js"></script>
 </body>
 </html>

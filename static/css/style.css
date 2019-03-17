@@ -1,3 +1,4 @@
+
 main{
 	background: url(../pics/musicFestivalBG.jpg) fixed no-repeat;
 }
@@ -5,6 +6,7 @@ main{
 	background: rgba(255,255,255,.8);
 	padding-left:0px !important;
 	padding-right:0px !important;
+	font-family: sans-serif;
 }
 .banner img{
 	max-width:100%;
@@ -20,8 +22,11 @@ main{
 	font-family: sans-serif;
 }
 .sectionOne{
-	margin-top: 15px;
-	margin-bottom: 15px;
+	/*margin-top: 15px;
+	margin-bottom: 15px;*/
+	background:rgba(246, 254, 205, 0.6);
+	padding-top:15px;
+	padding-bottom:15px;
 }
 
 #theArtists{
@@ -133,9 +138,45 @@ main{
 .flickity-button-icon{
 	color:white;
 }
+.section-content-ul{
+	margin-left:-40px;
+}
 
 .section-content-ul li{
 	list-style:none;
 	margin-bottom: 10px;
+}
+.flickity-prev-next-button{
+	height:30px !important;
+	width: 30px !important;
+}
+.returnYear{
+	text-align: center;
+}
+.returnYear h2{
+	background:#E03125;
+	color:white;
+}
+.returnArtistSong{
+	text-align: center;
+}
+.returnArtistSong h2{
+	color:white;
+}
+.returnArtistSong h4{
+	font-style: italic;
+	color: white;
+}
+.section-content-ul .row{
+	padding:0px !important;
+	background-color: rgba(0, 0, 0, 0.6);
+	padding-top: 10px !important;
+	/*padding-bottom:10px !important;*/
+}
+.noHitText{
+	font-size: 36px;
+	padding:10px 15px;
+	background-color: rgba(0, 0, 0, 0.6);
+	color:white;
 }
 
