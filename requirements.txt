@@ -4,14 +4,9 @@ asn1crypto==0.24.0
 astroid==2.1.0
 Automat==0.7.0
 Babel==2.6.0
-backcall==0.1.0
-backports.os==0.1.1
-certifi==2018.11.29
 Click==7.0
 Flask==1.0.2
 Flask-Cors==3.0.7
-gevent==1.4.0
-glob2==0.6
 gmpy2==2.0.8
 greenlet==0.4.15
 gunicorn==19.9.0
@@ -57,15 +52,8 @@ PyMySQL==0.9.3
 pyodbc==4.0.26
 pyOpenSSL==19.0.0
 pyparsing==2.3.1
-PySocks==1.6.8
-pytest==4.3.0
-pytest-openfiles==0.3.2
-pytest-remotedata==0.3.1
-python-dateutil==2.8.0
-pytz==2018.9
-PyYAML==3.13
 scikit-learn==0.20.3
 scipy==1.2.1
 SQLAlchemy==1.2.18
-sympy==1.3
+
 
