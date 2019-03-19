@@ -1,1 +1,1 @@
-web: gunicorn tripleJmusicApp_app.routes:app
+web: gunicorn tripleJmusicApp.routes:app
