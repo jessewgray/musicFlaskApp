@@ -1,3 +1,3 @@
 # musicFlaskApp
 
-technologies used: html, css, javascript, d3, plotly, python, flask, sql alchemy, sql, postgress, git, heroku
+Technologies Used: HTML, CSS, Bootstrap, JavaScript, D3, Plotly, Python, Flask, SQL Alchemy, MySQL, Postgress, GIT, Heroku
