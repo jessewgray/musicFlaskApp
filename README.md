@@ -1,6 +1,6 @@
 # musicFlaskApp
 ##### Link to live site (https://musicflaskapp.herokuapp.com/)
-##### Technologies Used: HTML, CSS, Bootstrap, JavaScript, D3, Plotly, Python, Flask, SQL Alchemy, MySQL, Postgress, GIT, Heroku
+##### Technologies Used: HTML, CSS, Bootstrap, JavaScript, D3, Plotly, leaflet, Python, Flask, SQL Alchemy, MySQL, Postgress, GIT, Heroku
 ##### To use the app, choose the musicFlaskApp file, download and run routes.py or click the live link above
 
 
