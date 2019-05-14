@@ -1,6 +1,8 @@
 # musicFlaskApp
 ##### Link to live site (https://musicflaskapp.herokuapp.com/)
 ##### Technologies Used: HTML, CSS, Bootstrap, JavaScript, D3, Plotly, Python, Flask, SQL Alchemy, MySQL, Postgress, GIT, Heroku
+##### To use the app, choose the musicFlaskApp file, download and run routes.py or click the live link above
+
 
 I used a csv of Triple J's past 'Hot 100' lists from 1993 - 2017 to create a database of songs and bands that had made the list over the years. The app charts and shows the data based on filters, created by clicking the map and dropdown options.
 
