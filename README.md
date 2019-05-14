@@ -14,10 +14,8 @@ If there are songs on the list from that country, the dropdown will populate wit
 
 If you choose to filter by artist, the right side of the colum will update, as will the first bar graph, as well as a second chart showing the length of the charting songs.
 
-
-
-
-
 ![mFlaskFive](mFlaskReadmePics/mFlaskFive.png)
+
+The bottom right section allows you to listen the live radio station, as well as see what songs are coming next.
 
 ![mFlaskSix](mFlaskReadmePics/mFlaskSix.png)
